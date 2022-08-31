@@ -13,7 +13,11 @@ const tripSchema = mongoose.Schema({
         type:Number,
         required:true
     },
-    date:{
+    dateFrom:{
+        type:Date,
+        required:true
+    },
+    dateUpto:{
         type:Date,
         required:true
     }

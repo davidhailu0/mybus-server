@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const ticketSchema = mongoose.Schema({
+    _id:{
+        type:String,
+        required:true
+    },
     starting_place:{
         type:String,
         required:true
@@ -17,6 +21,6 @@ const ticketSchema = mongoose.Schema({
         type:Date,
         required:true
     }
-})
+},{_id:false})
 
-module.exports = mongoose.model("Trip",tripSchema)
+module.exports = mongoose.model("Ticket",ticketSchema)

@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require('cors')
-const busRouter = require("./routes/busCompany.Routes")
-const passengerRouter = require("./routes/passenger.Routes")
+const tripRouter = require("./routes/trip.Routes")
+const ticketRouter = require("./routes/ticket.Route")
 require('dotenv').config()
 require("./config")
 
@@ -11,9 +11,8 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 app.use('/authenticate',authRouter)
-app.use("/",passengerRouter)
-app.use("/busCompany",busRouter)
-
+app.use("/api/trip/",tripRouter)
+app.use("/api/ticket",ticketRouter)
 
 app.listen(process.env.PORT,()=>{
     console.log(`Listening on port ${process.env.PORT}`)

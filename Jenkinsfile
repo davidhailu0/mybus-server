@@ -1,24 +1,25 @@
 pipeline{
     agent {
         docker{
-            image ""
-            args ""
+            image "davidhailu0/dockercomposedebian"
+            args "-v /var/run/docker.sock:/var/run/docker.sock -u root"
         }
     }
     stages{
         stage("Build"){
             steps{
-                sh "npm install"
+                sh "docker-compose build server"
+                sh "docker-compose build test"
             }
         }
         stage("Test"){
             steps{
-                sh "npm run ci:e2e"
+                sh "docker-compose run test"
             }
         }
         stage("Deploy"){
             steps{
-                sh "npm run start"
+                sh "docker"
             }
         }
     }

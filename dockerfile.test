@@ -1,4 +1,4 @@
-FROM node:16.17-alpine3.15
+FROM davidhailu0/dockercomposedebian:latest
 
 RUN mkdir server
 
@@ -10,4 +10,4 @@ RUN npm install
 
 COPY . .
 
-CMD ["npm","start"]
+CMD ["npm","test"]

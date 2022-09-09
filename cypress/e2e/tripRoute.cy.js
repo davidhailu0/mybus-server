@@ -1,13 +1,13 @@
 
-describe('Testing the endpoints of passngers API', () => {
+describe('Testing the endpoints of trip API', () => {
   it('fetch search results from the database', () => {
-    cy.request({ method: 'GET', url: '/?starting_place=Addis%20Ababa&destination=Bahir%20Dar&date=1661979600000', headers: { Authorization: ``} }).then(resp=>{
+    cy.request({ method: 'GET', url: '/trip/?starting_place=Addis%20Ababa&destination=Bahir%20Dar&date=1661979600000', headers: { Authorization: ``} }).then(resp=>{
       expect(resp.status).equal(200)
     })
   })
 
   it('add trip to the database', () => {
-    cy.request({ method: 'POST', url: '/addTrip', headers: { Authorization: ``},body:{
+    cy.request({ method: 'POST', url: '/trip/addTrip', headers: { Authorization: ``},body:{
       starting_place:"Addis Ababa",
       destination:"Bahir Dar",
       price:1200,

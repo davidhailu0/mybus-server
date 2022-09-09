@@ -4,3 +4,10 @@ services:
     build: 
       dockerfile: dockerfile
       context: ./
+  test:
+    build:
+      context: .
+      dockerfile: dockerfile.test
+    command:  npm run ci:e2e
+    ports:
+      - 3000:3000

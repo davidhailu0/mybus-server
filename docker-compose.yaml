@@ -10,6 +10,6 @@ services:
       dockerfile: dockerfile.test
     command:  npm run ci:e2e
     environment:
-      - MONGODB_URI = mongodb+srv://mybus:priuJr3FVQ96IcSB@cluster0.gn92lfx.mongodb.net/?retryWrites=true&w=majority
+      - MONGODB_URI=mongodb+srv://mybus:priuJr3FVQ96IcSB@cluster0.gn92lfx.mongodb.net/?retryWrites=true&w=majority
     ports:
       - 3000:3000

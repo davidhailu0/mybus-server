@@ -14,7 +14,7 @@ pipeline{
         }
         stage("Test"){
             steps{
-                sh "docker-compose run -d server"
+                sh "docker-compose run -d --service-ports server"
                 sh "docker-compose run test"
             }
         }

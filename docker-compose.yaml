@@ -1,9 +1,14 @@
 version: '3.7'
+
 services:
   server:
     build: 
       dockerfile: dockerfile
       context: ./
+    ports:
+      - 9000:9000
+    networks:
+      - run-server
   test:
     build:
       context: .
@@ -14,5 +19,8 @@ services:
       - PORT=9000
     ports:
       - 9000:9000
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    networks:
+      - run-server
+networks: 
+  run-server:
+    driver: custom-driver-1

@@ -1,4 +1,4 @@
-FROM davidhailu0/dockercomposedebian:latest
+FROM davidhailu0/customnode:latest
 
 RUN mkdir server
 

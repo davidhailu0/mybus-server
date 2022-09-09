@@ -2,7 +2,7 @@ pipeline{
     agent {
         docker{
             image "davidhailu0/dockercomposedebian"
-            args "-v /var/run/docker.sock:/var/run/docker.sock -u root"
+            args "-v /var/run/docker.sock:/var/run/docker.sock -u root --add-host=host.docker.internal:host-gateway"
         }
     }
     stages{

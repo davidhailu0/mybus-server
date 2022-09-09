@@ -14,3 +14,5 @@ services:
       - PORT=9000
     ports:
       - 9000:9000
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

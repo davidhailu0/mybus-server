@@ -14,8 +14,8 @@ pipeline{
         }
         stage("Test"){
             steps{
-                sh "docker-compose run -d -p 9000:9000 server"
-                sh "docker-compose run test"
+                sh "docker-compose run -d -p 9000:9000 --network='bridge' --name=localserver server"
+                sh "docker-compose run --network='bridge' test"
             }
         }
         // stage("Deploy"){

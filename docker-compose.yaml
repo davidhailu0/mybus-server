@@ -9,6 +9,9 @@ services:
       - 9000:9000
     networks:
       - run-server
+    environment:
+      - MONGODB_URI=mongodb+srv://mybus:priuJr3FVQ96IcSB@cluster0.gn92lfx.mongodb.net/?retryWrites=true&w=majority
+      - PORT=9000
   test:
     build:
       context: .
@@ -17,10 +20,8 @@ services:
     environment:
       - MONGODB_URI=mongodb+srv://mybus:priuJr3FVQ96IcSB@cluster0.gn92lfx.mongodb.net/?retryWrites=true&w=majority
       - PORT=9000
-    ports:
-      - 9000:9000
     networks:
       - run-server
 networks: 
   run-server:
-    driver: custom-driver-1
+    driver: bridge

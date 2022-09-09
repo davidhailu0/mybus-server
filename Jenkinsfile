@@ -2,7 +2,7 @@ pipeline{
     agent {
         docker{
             image "davidhailu0/dockercomposedebian"
-            args "-v /var/run/docker.sock:/var/run/docker.sock -u root -p 9000:9000"
+            args "-v /var/run/docker.sock:/var/run/docker.sock -u root"
         }
     }
     stages{

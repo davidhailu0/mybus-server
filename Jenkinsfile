@@ -14,7 +14,7 @@ pipeline{
         }
         stage("Test"){
             steps{
-                sh "docker-compose run -d  --name=localserver server"
+                sh "docker-compose run -d server"
                 sh "docker-compose run test"
             }
         }

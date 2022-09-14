@@ -4,7 +4,7 @@ services:
   server:
     container_name: localserver
     build: 
-      dockerfile: dockerfile
+      dockerfile: dockerfile.local
       context: ./
     ports:
       - 9000:9000
@@ -17,8 +17,10 @@ services:
   test:
     build:
       context: .
-      dockerfile: dockerfile.test
+      dockerfile: dockerfile.local
     command:  npm test
+    depends_on:
+      - server
     environment:
       - MONGODB_URI=mongodb+srv://mybus:priuJr3FVQ96IcSB@cluster0.gn92lfx.mongodb.net/?retryWrites=true&w=majority
       - PORT=9000

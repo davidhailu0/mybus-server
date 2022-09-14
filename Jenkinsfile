@@ -9,7 +9,7 @@ pipeline{
         stage("Build"){
             steps{
                 sh "docker-compose build server"
-                sh "docker-compose build test"
+                sh "docker-compose build test --service-ports"
             }
         }
         stage("Test"){

@@ -12,7 +12,6 @@ services:
       - MONGODB_URI=mongodb+srv://mybus:priuJr3FVQ96IcSB@cluster0.gn92lfx.mongodb.net/?retryWrites=true&w=majority
       - PORT=9000
       - HOST=localhost
-    command: npm start
     networks:
       - api
   test:

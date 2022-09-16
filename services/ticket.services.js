@@ -10,7 +10,7 @@ const Ticket = require("../models/ticket.model")
 
 const buyTicket = async(req,res)=>{
     const {starting_place,destination,date,price} = req.body
-    const newTicketObject = {starting_place,destination,date,price,_id:xid.generateId()}
+    const newTicketObject = {starting_place,destination,date,price,_id:xid.generateId().toString().substring(0,5)}
     try{
         const newTicket = new Ticket(newTicketObject)
         const savedTicket = await newTicket.save();

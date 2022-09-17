@@ -7,12 +7,14 @@
     "test": "cypress run",
     "cypress": "cypress open",
     "start": "node app.js",
-    "ci:e2e":"start-server-and-test start http://localhost:9000 test"
+    "ci:e2e": "start-server-and-test start http://localhost:9000 test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@sentry/node": "^7.13.0",
+    "@sentry/tracing": "^7.13.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",

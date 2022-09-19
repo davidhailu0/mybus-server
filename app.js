@@ -6,7 +6,6 @@ require('dotenv').config()
 require("./config")
 const Sentry = require("@sentry/node");
 const Tracing = require("@sentry/tracing");
-const getLocation = require("./utils/getLocation")
 
 const authRouter = require('./routes/auth.Routes')
 const app = express()

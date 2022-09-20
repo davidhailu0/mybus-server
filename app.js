@@ -6,8 +6,9 @@ require('dotenv').config()
 require("./config")
 const Sentry = require("@sentry/node");
 const Tracing = require("@sentry/tracing");
-
 const authRouter = require('./routes/auth.Routes')
+const getCityFromIp = require("./utils/getCityFromIP")
+const {checkLocation} = require("./middlewares/location.cache.middleware")
 const app = express()
 Sentry.init({
     dsn: "https://918f046266284fbdbd85d61a1a7d801c@o1413547.ingest.sentry.io/6754649",
@@ -25,6 +26,7 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 app.use('/authenticate',authRouter)
+app.get("/:ip",checkLocation,getCityFromIp)
 app.use("/api/trip/",tripRouter)
 app.use("/api/ticket",ticketRouter)
 

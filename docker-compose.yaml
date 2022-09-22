@@ -4,7 +4,7 @@ services:
   server:
     container_name: localserver
     build: 
-      dockerfile: dockerfile.local
+      dockerfile: dockerfile.production
       context: ./
     ports:
       - 9000:9000

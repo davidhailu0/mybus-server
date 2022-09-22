@@ -18,10 +18,15 @@ pipeline{
                 sh "docker-compose run test"
             }
         }
-        // stage("Deploy"){
-        //     steps{
-        //         sh "docker"
-        //     }
-        // }
+        stage("Deploy"){
+            steps{
+                sh "docker"
+            }
+        }
+    }
+    post{
+        always{
+            sh "docker-compose run server"
+        }
     }
 }

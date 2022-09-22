@@ -20,13 +20,13 @@ pipeline{
         }
         stage("Deploy"){
             steps{
-                sh "docker"
+                sh "docker-compose run -d server"
             }
         }
     }
     post{
         always{
-            sh "docker-compose run server"
+            sh "docker system prune"
         }
     }
 }

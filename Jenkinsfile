@@ -20,7 +20,7 @@ pipeline{
         }
         stage("Deploy"){
             steps{
-                sh "docker-compose run -d server"
+                sh "docker-compose run server"
             }
         }
     }

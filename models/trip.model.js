@@ -13,6 +13,10 @@ const tripSchema = mongoose.Schema({
         type:Number,
         required:true
     },
+    busProvider:{
+        type:String,
+        required:true
+    },
     dateFrom:{
         type:Date,
         required:true

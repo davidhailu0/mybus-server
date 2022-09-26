@@ -19,7 +19,7 @@ services:
     build:
       context: .
       dockerfile: dockerfile.local
-    command:  npm test
+    command:  yarn test
     depends_on:
       - server
     environment:

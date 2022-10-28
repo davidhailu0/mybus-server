@@ -19,7 +19,7 @@ const getCityfromIP = async(req,res)=>{
             data += chunk;
         });
         response.on("end",()=>{
-            
+            console.log(JSON.parse(data))
             const regionName = JSON.parse(data)['regionName'].toLowerCase()
             if(regionName.includes("addis ababa")||regionName.includes("amhara")){
                 locationCache.set(ip,{city:JSON.parse(data)['city'],lang:"amh"})
@@ -29,7 +29,10 @@ const getCityfromIP = async(req,res)=>{
                 locationCache.set(ip,{city:JSON.parse(data)['city'],lang:"orm"})
                 return res.status(200).json({message:"success",city:JSON.parse(data)['city'],lang:"orm"})
             }
-
+            else{
+                locationCache.set(ip,{city:JSON.parse(data)['city'],lang:"eng"})
+                return res.status(200).json({message:"success",city:JSON.parse(data)['city'],lang:"eng"})
+            }
         })
     })
     httpGet.end()

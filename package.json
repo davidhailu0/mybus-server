@@ -6,7 +6,7 @@
   "scripts": {
     "test": "cypress run",
     "cypress": "cypress open",
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "ci:e2e": "start-server-and-test start http://localhost:9000 test"
   },
   "keywords": [],
@@ -16,15 +16,20 @@
     "@sentry/node": "^7.13.0",
     "@sentry/tracing": "^7.13.0",
     "bcryptjs": "^2.4.3",
+    "convert-excel-to-json": "^1.7.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "express-device": "^0.4.2",
     "express-validations": "^2.2.3",
+    "jsonwebtoken": "^8.5.1",
     "moment": "^2.29.4",
     "mongoose": "^6.5.2",
+    "multer": "^1.4.5-lts.1",
     "node-cache": "^5.1.2",
     "nodemailer": "^6.7.8",
-    "xid": "^0.0.2"
+    "xid": "^0.0.2",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "cypress": "^10.6.0",

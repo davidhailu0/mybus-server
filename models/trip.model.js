@@ -24,7 +24,8 @@ const tripSchema = mongoose.Schema({
     dateUpto:{
         type:Date,
         required:true
-    }
+    },
+    busLogo:String
 })
 
 module.exports = mongoose.model("Trip",tripSchema)

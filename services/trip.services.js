@@ -37,7 +37,6 @@ const getSearchedTrips = async(req,res)=>{
   try{
     const result = await Trip.find({starting_place,destination})
     const filteredResult = result.filter(({dateFrom,dateUpto})=>new Date(dateFrom.toString()).getTime()<=parseInt(date)&&new Date(dateUpto.toString())>=parseInt(date))
-    console.log(filteredResult)
     return res.status(200).json(filteredResult)
 
   }
@@ -59,8 +58,7 @@ const updateTrip = async(req,res)=>{
 }
 
 const deleteTrip = async(req,res)=>{
-  const {update_starting_place,update_destination,update_dateFrom,update_dateUpto} = req.body;
-  const {starting_place,destination,dateFrom,dateUpto} = req.query
+  const {starting_place,destination,dateFrom,dateUpto} = req.body
   try{
     await Trip.deleteMany({starting_place,destination,dateFrom,dateUpto},{starting_place:update_starting_place,destination:update_destination,dateFrom:update_dateFrom,dateUpto:update_dateUpto})
     return res.status(204)

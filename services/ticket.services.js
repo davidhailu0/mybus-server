@@ -14,10 +14,10 @@ const buyTicket = async(req,res)=>{
     try{
         const newTicket = new Ticket(newTicketObject)
         const savedTicket = await newTicket.save();
-        res.status(201).json({"status":"success","data":savedTicket})
+        return res.status(201).json({"status":"success","data":savedTicket})
     }
     catch(e){
-        res.status(500).json({"status":"error","message":e.message})
+        return res.status(500).json({"status":"error","message":e.message})
     }
 }
 
@@ -27,7 +27,7 @@ const getTicketById = async(req,res)=>{
     if(foundedTicket){
        return res.status(200).json({"status":"success","data":foundedTicket})
     }
-    res.status(200).json({"status":"success","data":"No Ticket Found"})
+    return res.status(200).json({"status":"success","data":"No Ticket Found"})
 }
 
 const updateTicket = (req,res)=>{
